@@ -1,0 +1,56 @@
+{% load main_page_tags %}
+<section id="testimonials" class="testimonials">
+      <div class="container position-relative">
+
+        {% get_customer as cust %}
+
+        <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+            {% for people in cust %}
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <img src={{ people.image.url  }} class="testimonial-img" alt="">
+                    <h3>{{ people.first_name}} {{ people.second_name}}</h3>
+                    <h4>{{ people.position}}</h4>
+                    <div class="stars">
+                    {% if people.stars == 1 %}
+                        <i class="bi bi-star-fill"></i>
+                    {% endif %}
+                    {% if people.stars == 2 %}
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    {% endif %}
+                    {% if people.stars == 3 %}
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    {% endif %}
+                        {% if people.stars == 4 %}
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    {% endif %}
+                        {% if people.stars == 5 %}
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    {% endif %}
+                    </div>
+                    <p>
+                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        {{ people.comment }}
+                       <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                  </div>
+                </div><!-- End testimonial item -->
+            {% endfor %}
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->

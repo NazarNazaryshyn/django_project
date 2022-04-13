@@ -1,0 +1,83 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <section id="events" class="events">
+      <div class="container">
+
+       <br>
+       <br>
+       <br>
+       <br>
+
+        <div class="events-slider swiper-container">
+          <div class="swiper-wrapper">
+            {% for image in slide %}
+                <div class="swiper-slide">
+                  <div class="row event-item">
+                    <div class="col-lg-6">
+                      <img src={{ image.image.url }} class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 content">
+                      <h3>Birthday Parties</h3>
+                      <div class="price">
+                        <p><span>$189</span></p>
+                      </div>
+                      <p class="fst-italic">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
+                      </p>
+                      <ul>
+                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                      </ul>
+                      <p>
+                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+            {% endfor %}
+
+
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    </section><!-- End Events Section -->
+    <section  style="background: #ffcf88">
+    <div class="container">
+    <br>
+        <div class="section-title">
+          <h3>Login</h3>
+        </div>
+
+        <form  method="post" role="form" class="form-horizontal">
+            {% csrf_token %}
+              <div class="text-center">
+                  <div class="col">
+                      {{ form.username }}
+                  </div>
+                  <br>
+                  <div class="col">
+                      {{ form.password }}
+                  </div>
+
+              </div>
+            <br>
+          <div class="text-center"><input type="submit" value="Enter"></div>
+            <br>
+        </form>
+
+      </div>
+    </section>
+{% endblock  %}

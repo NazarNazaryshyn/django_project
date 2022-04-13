@@ -1,0 +1,109 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <section id="events" class="events">
+      <div class="container">
+
+       <br>
+       <br>
+       <br>
+       <br>
+
+        <div class="events-slider swiper-container">
+          <div class="swiper-wrapper">
+            {% for image in slide %}
+                <div class="swiper-slide">
+                  <div class="row event-item">
+                    <div class="col-lg-6">
+                      <img src={{ image.image.url }} class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 content">
+                      <h3>Birthday Parties</h3>
+                      <div class="price">
+                        <p><span>$189</span></p>
+                      </div>
+                      <p class="fst-italic">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
+                      </p>
+                      <ul>
+                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                      </ul>
+                      <p>
+                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+            {% endfor %}
+
+
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    </section><!-- End Events Section -->
+    <section id="reserves" style="background: #ffcf88">
+        <div class="container"  style="display: flex; align-items: center; justify-content: center">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                        <div class="col-sm" style="text-align:center;border: black 2px solid;border-bottom: #ffcf88 ">
+                          <b>Id</b>
+                        </div>
+                        <div class="col-sm" style="text-align:center;border: black 2px solid;border-bottom: #ffcf88;border-left: white  ">
+                          <b>Name</b>
+                        </div>
+                        <div class="col-sm" style="text-align:center;border: black 2px solid;border-bottom: #ffcf88;border-left: white ">
+                          <b>Phone</b>
+                        </div>
+                        <div class="col-sm" style="text-align:center ;border: black 2px solid;border-bottom: #ffcf88;border-left: white">
+                          <b>Date</b>
+                        </div>
+                         <div class="col-sm" style="text-align:center ;border: black 2px solid;border-bottom: #ffcf88;border-left: white">
+                          <b>Close</b>
+                        </div>
+                     </div>
+                <div class="row" style="border: black 2px solid; border-top: #ffcf88">
+                    <br>
+                </div>
+                {% for item in list %}
+                     <div class="row" style="background: #fff3cd;padding: 10px;border-left: black 2px solid;;border-right: black 2px solid">
+                     <div class="col-sm" style="text-align:center  ">
+                          {{ item.pk }}
+                        </div>
+                        <div class="col-sm" style="text-align:center ">
+                          {{ item.name }}
+                        </div>
+                        <div class="col-sm" style="text-align:center ">
+                          {{ item.phone }}
+                        </div>
+                        <div class="col-sm" style="text-align:center ">
+                          {{ item.date|date:'d-m-Y' }}
+                        </div>
+                        <div class="col-sm" style="text-align:center ">
+                           <a href="{% url 'Manager:update_reservation' pk=item.pk %}">
+                                <button type="button" class="btn btn-primary" style="background: #ffb03b; border: #ffb03b">
+                                    Close
+                                </button>
+                           </a>
+                        </div>
+                     </div>
+                    <div class='row' style="background: #fff3cd;border-bottom: black 2px solid;border-left: black 2px solid;;border-right: black 2px solid">
+                    <br>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
