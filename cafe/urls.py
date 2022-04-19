@@ -3,6 +3,9 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.views.static import serve
+from django.conf.urls import url
+
 from account.views import login_view, logout_view, registration_view
 
 
@@ -15,6 +18,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_page.urls'), name='main_page'),
     path('managers/', include('Manager.urls'), name='manager'),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
 
 if settings.DEBUG:
