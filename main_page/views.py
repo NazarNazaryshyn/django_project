@@ -4,6 +4,7 @@ from .models import Category, Dish, Advantage, Chef, Gallery, Slide, Customer, P
 from .forms import UserReservationForm, UserContactsForm
 from django.core.paginator import Paginator
 from django.db.models import Avg, Count, Sum
+import requests
 
 dishes = Dish.objects.filter(is_visible=True).order_by('position')
 
@@ -54,4 +55,10 @@ def pagination(request):
 
     return render(request, 'test_chef.html', {'dish':dish,
                                               'page_obj':page_obj})
+
+
+def index(request):
+    r = requests.get('https://httpbin.org/status/418')
+    print(r.text)
+    return HttpResponse('<pre>' + r.text + '</pre>')
 
