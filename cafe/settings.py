@@ -15,7 +15,7 @@ DB_HOST = os.environ.get('DB_HOST')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-cafe-project.herokuapp.com/']
+ALLOWED_HOSTS = ['django-cafe-project.herokuapp.com']
 
 
 INSTALLED_APPS = [
