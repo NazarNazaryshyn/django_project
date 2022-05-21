@@ -5,7 +5,7 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECRET_KEY = 'django-insecure-@py92@=8@*w!cqgp_-#r0nhr!h9y0^k8kx!x_x4(ii)-#9%$jm'
+
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 DB_NAME = os.environ.get('DB_NAME')
